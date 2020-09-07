@@ -21,7 +21,7 @@ const Home = () => {
 					</TitleContainer>
 					<P>Coronavirus disease (COVID-19) is an disease caused by a newly discovered coronavirus.</P>
 					<Btn>
-						<SLink to={'/symptoms'}>LEARN MORE</SLink>
+						<SLink to={'/about'}>LEARN MORE</SLink>
 					</Btn>
 				</Info>
 				<Img url={require('../assets/home.png')} />

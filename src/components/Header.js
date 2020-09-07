@@ -14,8 +14,8 @@ const Header = ({ location: { pathname } }) => {
 					<Li underline={pathname === '/'}>
 						<SLink to={'/'}>Home</SLink>
 					</Li>
-					<Li underline={pathname === '/symptoms'}>
-						<SLink to={'/symptoms'}>Symptoms</SLink>
+					<Li underline={pathname === '/about'}>
+						<SLink to={'/about'}>About</SLink>
 					</Li>
 					<Li underline={pathname === '/dashboard'}>
 						<SLink to={'/dashboard'}>Dashboard</SLink>

@@ -9,7 +9,7 @@ export default () => (
 		<>
 			<Switch>
 				<Route path="/" exact component={home} />
-				<Route path="/symptoms" component={symptoms} />
+				<Route path="/about" component={symptoms} />
 				<Route path="/dashboard" component={dashboard} />
 				<Redirect from="*" to="/" />
 			</Switch>
