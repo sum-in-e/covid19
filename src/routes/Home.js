@@ -77,11 +77,20 @@ const P = styled.p`
 const Btn = styled.button`
 	height: 6%;
 	width: 20%;
+	font-size: 0.8rem;
+	font-weight: bold;
 	background-color: #f14338;
 	outline: none;
 	border: none;
 	color: white;
 	cursor: pointer;
+	transition: all 0.5s;
+	&:hover {
+		background-color: white;
+	}
+	&:hover > a {
+		color: #f14338;
+	}
 `;
 
 const SLink = styled(Link)`
