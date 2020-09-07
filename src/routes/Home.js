@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import covidApi from '../api';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 
@@ -21,9 +20,9 @@ const Home = () => {
 						</TextBox>
 					</TextContainer>
 					<P>Coronavirus disease (COVID-19) is an disease caused by a newly discovered coronavirus.</P>
-					<SLink to={'/symptoms'}>
-						<Btn>LEARN MORE</Btn>
-					</SLink>
+					<Btn>
+						<SLink to={'/symptoms'}>LEARN MORE</SLink>
+					</Btn>
 				</Introduction>
 				<Img url={require('../assets/home.png')} />
 				<StatusKR></StatusKR>
@@ -75,19 +74,25 @@ const P = styled.p`
 	color: white;
 `;
 
-const SLink = styled(Link)`
+const Btn = styled.button`
 	height: 6%;
 	width: 20%;
-`;
-
-const Btn = styled.button`
-	height: 100%;
-	width: 100%;
 	background-color: #f14338;
 	outline: none;
 	border: none;
 	color: white;
 	cursor: pointer;
+`;
+
+const SLink = styled(Link)`
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+		color: white;
+	}
 `;
 
 const Img = styled.section`
