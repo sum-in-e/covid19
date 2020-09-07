@@ -20,9 +20,9 @@ const Home = () => {
 						</TextBox>
 					</TitleContainer>
 					<P>Coronavirus disease (COVID-19) is an disease caused by a newly discovered coronavirus.</P>
-					<Btn>
-						<SLink to={'/about'}>LEARN MORE</SLink>
-					</Btn>
+					<SLink to={'/about'}>
+						<Btn>LEARN MORE</Btn>
+					</SLink>
 				</Info>
 				<Img url={require('../assets/home.png')} />
 			</Main>
@@ -74,9 +74,22 @@ const P = styled.p`
 	color: white;
 `;
 
-const Btn = styled.button`
+const SLink = styled(Link)`
 	height: 6%;
 	width: 20%;
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+		color: white;
+	}
+`;
+
+const Btn = styled.button`
+	width: 100%;
+	height: 100%;
 	font-size: 0.8rem;
 	font-weight: bold;
 	background-color: #f14338;
@@ -87,20 +100,7 @@ const Btn = styled.button`
 	transition: all 0.5s;
 	&:hover {
 		background-color: white;
-	}
-	&:hover > a {
 		color: #f14338;
-	}
-`;
-
-const SLink = styled(Link)`
-	&:focus,
-	&:hover,
-	&:visited,
-	&:link,
-	&:active {
-		text-decoration: none;
-		color: white;
 	}
 `;
 
