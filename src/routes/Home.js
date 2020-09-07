@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import covidApi from '../api';
 import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-	const [item, setItem] = useState('Home');
-	// const hi = covidApi.countryStatus('S. Korea');
-
 	return (
 		<Container className="Home">
 			<Header />
@@ -23,7 +21,9 @@ const Home = () => {
 						</TextBox>
 					</TextContainer>
 					<P>Coronavirus disease (COVID-19) is an disease caused by a newly discovered coronavirus.</P>
-					<Btn>LEARN MORE</Btn>
+					<SLink to={'/symptoms'}>
+						<Btn>LEARN MORE</Btn>
+					</SLink>
 				</Introduction>
 				<Img url={require('../assets/home.png')} />
 				<StatusKR></StatusKR>
@@ -75,9 +75,14 @@ const P = styled.p`
 	color: white;
 `;
 
-const Btn = styled.button`
-	height: 7%;
+const SLink = styled(Link)`
+	height: 6%;
 	width: 20%;
+`;
+
+const Btn = styled.button`
+	height: 100%;
+	width: 100%;
 	background-color: #f14338;
 	outline: none;
 	border: none;
