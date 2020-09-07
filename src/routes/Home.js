@@ -8,8 +8,8 @@ const Home = () => {
 		<Container className="Home">
 			<Header />
 			<Main>
-				<Introduction>
-					<TextContainer>
+				<Info>
+					<TitleContainer>
 						<TextBox>
 							<TextRed>Stay</TextRed>
 							<TextWhite>Home</TextWhite>
@@ -18,14 +18,13 @@ const Home = () => {
 							<TextWhite>Stay</TextWhite>
 							<TextRed>Safe</TextRed>
 						</TextBox>
-					</TextContainer>
+					</TitleContainer>
 					<P>Coronavirus disease (COVID-19) is an disease caused by a newly discovered coronavirus.</P>
 					<Btn>
 						<SLink to={'/symptoms'}>LEARN MORE</SLink>
 					</Btn>
-				</Introduction>
+				</Info>
 				<Img url={require('../assets/home.png')} />
-				<StatusKR></StatusKR>
 			</Main>
 		</Container>
 	);
@@ -42,13 +41,13 @@ const Main = styled.main`
 	width: 100%;
 `;
 
-const Introduction = styled.section`
+const Info = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 `;
 
-const TextContainer = styled.div`
+const TitleContainer = styled.div`
 	margin-bottom: 3rem;
 `;
 
@@ -69,6 +68,7 @@ const TextWhite = styled.p`
 `;
 
 const P = styled.p`
+	width: 70%;
 	margin-bottom: 3rem;
 	font-size: 1.1rem;
 	color: white;
