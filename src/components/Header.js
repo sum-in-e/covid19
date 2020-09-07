@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, withRouter } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ location: { pathname } }) => {
 	return (
 		<Container>
 			<Title>
@@ -10,9 +11,15 @@ const Header = () => {
 			</Title>
 			<Navigation>
 				<Ul>
-					<Li>Home</Li>
-					<Li>Symptoms</Li>
-					<Li>Dashboard</Li>
+					<Li underline={pathname === '/'}>
+						<SLink to={'/'}>Home</SLink>
+					</Li>
+					<Li underline={pathname === '/symptoms'}>
+						<SLink to={'/symptoms'}>Symptoms</SLink>
+					</Li>
+					<Li underline={pathname === '/dashboard'}>
+						<SLink to={'/dashboard'}>Dashboard</SLink>
+					</Li>
 				</Ul>
 			</Navigation>
 			<HotLine>
@@ -49,14 +56,30 @@ const Navigation = styled.nav`
 	position: relative;
 	right: -15rem;
 	width: 25%;
+	height: 50%;
 `;
 
 const Ul = styled.ul`
 	display: flex;
 	justify-content: space-between;
+	height: 100%;
+`;
+
+const SLink = styled(Link)`
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+		color: white;
+	}
 `;
 
 const Li = styled.li`
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid ${props => (props.underline ? '#f14338' : 'transparent')};
 	cursor: pointer;
 `;
 
@@ -71,4 +94,4 @@ const HotLine = styled.div`
 
 const Span = styled.span``;
 
-export default Header;
+export default withRouter(Header);
