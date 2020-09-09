@@ -36,7 +36,7 @@ const Main = styled.main`
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: repeat(2, 1fr);
-	padding: 0 10vw;
+	padding: 10vh 10vw 0 10vw;
 	height: 90vh;
 	width: 100%;
 `;
