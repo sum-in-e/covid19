@@ -15,6 +15,7 @@ const globalStyles = createGlobalStyle`
     body {
         background-color: #070c1f;
         font-family: 'Barlow', sans-serif;
+        color : white;
     }
 `;
 
