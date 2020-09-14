@@ -19,7 +19,6 @@ const Dashboard = () => {
 				<MainTitle>Coronavirus Dashboard</MainTitle>
 				<Board></Board>
 				<Board></Board>
-				{/* 여기 나중에 map으로 똑같이 찍어내기 */}
 				<WholeWorld>
 					<WorldHeader>
 						<Title>World</Title>
@@ -38,7 +37,9 @@ const Dashboard = () => {
 							<Case>Recovered</Case>
 							<Case>Active</Case>
 						</Category>
-						<CountryCases></CountryCases>
+						<Results>
+							<CountryCases></CountryCases>
+						</Results>
 					</WorldArticle>
 				</WholeWorld>
 			</Main>
@@ -60,7 +61,7 @@ const MainTitle = styled.h1`
 
 const WholeWorld = styled.section`
 	width: 100%;
-	height: 70vh;
+	height: 80vh;
 	margin-bottom: 2rem;
 	background-color: #1e2033;
 	border-radius: 25px;
@@ -105,7 +106,7 @@ const Input = styled.input`
 `;
 
 const WorldArticle = styled.article`
-	height: 80%;
+	height: 75%;
 	font-size: 1.2rem;
 	color: gray;
 `;
@@ -116,8 +117,9 @@ const Category = styled.div`
 	grid-template-rows: 1fr;
 	width: 100%;
 	height: 12%;
-	padding: 0 1.5rem;
+	padding: 0 3rem 0 1.5rem;
 	background-color: #272f38;
+	font-size: 1.1rem;
 `;
 
 const Name = styled.span`
@@ -129,6 +131,12 @@ const Name = styled.span`
 const Case = styled.span`
 	display: flex;
 	align-items: center;
+`;
+
+const Results = styled.div`
+	height: 88%;
+	overflow: scroll;
+	overflow-x: hidden;
 `;
 
 export default Dashboard;
