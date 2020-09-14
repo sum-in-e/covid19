@@ -4,6 +4,7 @@ import { Search } from '@styled-icons/bootstrap';
 import covidApi from '../api';
 import Header from '../components/Header';
 import Board from '../components/Board';
+import CountryCases from '../components/CountryCases';
 
 const Dashboard = () => {
 	const getKoreaStatus = covidApi.countryStatus('S. Korea');
@@ -20,13 +21,25 @@ const Dashboard = () => {
 				<Board></Board>
 				{/* 여기 나중에 map으로 똑같이 찍어내기 */}
 				<WholeWorld>
-					<SectionHeader>
+					<WorldHeader>
 						<Title>World</Title>
 						<SearchArea>
 							<SearchIcon />
-							<Input type="text" />
+							<Input type="text" placeholder="Search" />
 						</SearchArea>
-					</SectionHeader>
+					</WorldHeader>
+					<WorldArticle>
+						<Category>
+							<Name>Name</Name>
+							<Case>Confirmed</Case>
+							<Case>New Cases</Case>
+							<Case>Deaths</Case>
+							<Case>New Deaths</Case>
+							<Case>Recovered</Case>
+							<Case>Active</Case>
+						</Category>
+						<CountryCases></CountryCases>
+					</WorldArticle>
 				</WholeWorld>
 			</Main>
 		</Container>
@@ -53,9 +66,11 @@ const WholeWorld = styled.section`
 	border-radius: 25px;
 `;
 
-const SectionHeader = styled.header`
+const WorldHeader = styled.header`
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	height: 20%;
 	padding: 2rem 1.5rem;
 `;
 
@@ -76,7 +91,7 @@ const SearchArea = styled.div`
 const SearchIcon = styled(Search)`
 	width: 1rem;
 	height: auto;
-	margin-right: 5px;
+	margin-right: 10px;
 `;
 
 const Input = styled.input`
@@ -87,6 +102,33 @@ const Input = styled.input`
 	color: white;
 	background-color: #191b26;
 	font-size: 1.2rem;
+`;
+
+const WorldArticle = styled.article`
+	height: 80%;
+	font-size: 1.2rem;
+	color: gray;
+`;
+
+const Category = styled.div`
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	grid-template-rows: 1fr;
+	width: 100%;
+	height: 12%;
+	padding: 0 1.5rem;
+	background-color: #272f38;
+`;
+
+const Name = styled.span`
+	grid-column: span 2;
+	display: flex;
+	align-items: center;
+`;
+
+const Case = styled.span`
+	display: flex;
+	align-items: center;
 `;
 
 export default Dashboard;
