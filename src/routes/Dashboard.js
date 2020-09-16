@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/bootstrap';
 import useAxios from '../api';
@@ -6,7 +6,17 @@ import Header from '../components/Header';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
 
-const useAllCases = () => {};
+const useCountriesCases = () => {
+	const { loading, data, error } = useAxios({
+		url: '/v1',
+		headers: {
+			'x-rapidapi-host': 'covid-19-tracking.p.rapidapi.com',
+			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+		},
+	});
+
+	return { loading, data, error };
+};
 
 const useWorldCases = () => {
 	const { loading, data, error } = useAxios({
@@ -16,7 +26,6 @@ const useWorldCases = () => {
 			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
 		},
 	});
-	console.log(data);
 
 	return { loading, data, error };
 };
@@ -29,13 +38,15 @@ const useKoreaCases = () => {
 			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
 		},
 	});
-	console.log(data);
+
 	return { loading, data, error };
 };
 
 const Dashboard = () => {
 	const { loading: koreaLoading, data: koreaData, error: koreaError } = useKoreaCases();
 	const { loading: worldLoading, data: worldData, error: worldError } = useWorldCases();
+	const { loading: countriesLoading, data: countriesData, error: countriesError } = useCountriesCases();
+
 	return (
 		<Container className="Dashboard">
 			<Header />
@@ -62,7 +73,9 @@ const Dashboard = () => {
 							<Case>Active</Case>
 						</Category>
 						<Results>
-							<CountryCases></CountryCases>
+							{countriesData &&
+								countriesData.length > 0 &&
+								countriesData.map((result, index) => <CountryCases key={index} data={result} />)}
 						</Results>
 					</WorldArticle>
 				</WholeWorld>
@@ -161,6 +174,10 @@ const Results = styled.div`
 	height: 88%;
 	overflow: scroll;
 	overflow-x: hidden;
+
+	& > div:nth-child(2n) {
+		background-color: #1e2033;
+	}
 `;
 
 export default Dashboard;
