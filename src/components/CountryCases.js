@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CountryCases = () => {
+const CountryCases = ({ data }) => {
 	return (
 		<Container>
-			<Name>USA</Name>
-			<Count>0</Count>
-			<Count>+0</Count>
-			<Count>0</Count>
-			<Count>+0</Count>
-			<Count>0</Count>
-			<Count>0</Count>
+			{data.Country_text === 'World' ? (
+				<Name>{data.Country_text} Total</Name>
+			) : (
+				<Name>{data.Country_text ? data.Country_text : ''}</Name>
+			)}
+			<Count>{data['Total Cases_text'] ? data['Total Cases_text'] : ''}</Count>
+			<Count>{data['New Cases_text'] ? data['New Cases_text'] : ''}</Count>
+			<Count>{data['Total Deaths_text'] ? data['Total Deaths_text'] : ''}</Count>
+			<Count>{data['New Deaths_text'] ? data['New Deaths_text'] : ''}</Count>
+			<Count>{data['Total Recovered_text'] ? data['Total Recovered_text'] : ''}</Count>
+			<Count>{data['Active Cases_text'] ? data['Active Cases_text'] : ''}</Count>
 		</Container>
 	);
 };
@@ -23,6 +27,7 @@ const Container = styled.div`
 	height: 12%;
 	padding: 0 1.5rem;
 	background-color: #272f38;
+	font-size: 1.1rem;
 
 	& > span:nth-child(2) {
 		color: #21bf73;
