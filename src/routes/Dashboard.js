@@ -1,27 +1,51 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/bootstrap';
-import covidApi from '../api';
+import useAxios from '../api';
 import Header from '../components/Header';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
 
-const Dashboard = () => {
-	const getKoreaStatus = covidApi.countryStatus('S. Korea');
-	const getWorldStatus = covidApi.worldStatus();
-	getKoreaStatus.then(hi => console.log(hi));
-	getWorldStatus.then(hi => console.log(hi));
+const useAllCases = () => {};
 
+const useWorldCases = () => {
+	const { loading, data, error } = useAxios({
+		url: '/v1/World',
+		headers: {
+			'x-rapidapi-host': 'covid-19-tracking.p.rapidapi.com',
+			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+		},
+	});
+	console.log(data);
+
+	return { loading, data, error };
+};
+
+const useKoreaCases = () => {
+	const { loading, data, error } = useAxios({
+		url: '/v1/S. Korea',
+		headers: {
+			'x-rapidapi-host': 'covid-19-tracking.p.rapidapi.com',
+			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+		},
+	});
+	console.log(data);
+	return { loading, data, error };
+};
+
+const Dashboard = () => {
+	const { loading: koreaLoading, data: koreaData, error: koreaError } = useKoreaCases();
+	const { loading: worldLoading, data: worldData, error: worldError } = useWorldCases();
 	return (
-		<Container>
+		<Container className="Dashboard">
 			<Header />
 			<Main>
 				<MainTitle>Coronavirus Dashboard</MainTitle>
-				<Board></Board>
-				<Board></Board>
+				<Board loading={koreaLoading} data={koreaData} error={koreaError}></Board>
+				<Board loading={worldLoading} data={worldData} error={worldError}></Board>
 				<WholeWorld>
 					<WorldHeader>
-						<Title>World</Title>
+						<Title>Countries</Title>
 						<SearchArea>
 							<SearchIcon />
 							<Input type="text" placeholder="Search" />
