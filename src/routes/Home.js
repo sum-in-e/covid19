@@ -113,8 +113,4 @@ const Img = styled.section`
 	background-position: center;
 `;
 
-const StatusKR = styled.section`
-	grid-column: 1 / -1;
-`;
-
 export default Home;
