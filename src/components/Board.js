@@ -2,23 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Board = ({ loading, data, error }) => {
-	/*
-	data.['Active Cases_text'],
-			data.Country_text,
-			data.['Last Update'],
-			data.['New Cases_text'],
-			data.['New Deaths_text'],
-			data.['Total Cases_text'],
-			data.['Total Deaths_text'],
-			data.['Total Recovered_text'],
-		);
-*/
 	return (
 		<Container>
 			{data && Object.keys(data).length > 0 && (
 				<>
 					<Header>
-						<Title>{data.Country_text ? data.Country_text : '-'}</Title>
+						{data.Country_text === 'World' ? (
+							<Title>{data.Country_text} Total</Title>
+						) : (
+							<Title>{data.Country_text ? data.Country_text : '-'}</Title>
+						)}
 						<LastUpdate>Last Update : {data['Last Update'] ? data['Last Update'] : '-'}</LastUpdate>
 					</Header>
 					<Results>
