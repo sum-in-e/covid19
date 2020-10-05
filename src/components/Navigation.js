@@ -4,27 +4,21 @@ import { Link, withRouter } from 'react-router-dom';
 
 const Header = ({ location: { pathname } }) => {
 	return (
-		<Container path={pathname === '/about'}>
+		<Container>
 			<Title>
 				<RedP>COVID</RedP>
-				<WhiteP path={pathname === '/about'}>-19</WhiteP>
+				<WhiteP>-19</WhiteP>
 			</Title>
 			<Navigation>
 				<Ul>
 					<Li underline={pathname === '/'}>
-						<SLink to={'/'} path={pathname === '/about'}>
-							Home
-						</SLink>
+						<SLink to={'/'}>Home</SLink>
 					</Li>
 					<Li underline={pathname === '/about'}>
-						<SLink to={'/about'} path={pathname === '/about'}>
-							About
-						</SLink>
+						<SLink to={'/about'}>About</SLink>
 					</Li>
 					<Li underline={pathname === '/dashboard'}>
-						<SLink to={'/dashboard'} path={pathname === '/about'}>
-							Dashboard
-						</SLink>
+						<SLink to={'/dashboard'}>Dashboard</SLink>
 					</Li>
 				</Ul>
 			</Navigation>
@@ -47,7 +41,7 @@ const Container = styled.div`
 	border-bottom: solid 1px #070c1f;
 	font-size: 1.1rem;
 	color: white;
-	background-color: ${props => (props.path ? 'white' : '#070c1f')};
+	background-color: #070c1f;
 `;
 
 const Title = styled.div`
@@ -60,7 +54,7 @@ const RedP = styled.p`
 `;
 
 const WhiteP = styled.p`
-	color: ${props => (props.path ? '#070c1f' : 'white')};
+	color: white;
 `;
 
 const Navigation = styled.nav`
@@ -83,7 +77,7 @@ const SLink = styled(Link)`
 	&:link,
 	&:active {
 		text-decoration: none;
-		color: ${props => (props.path ? '#070c1f' : 'white')};
+		color: white;
 	}
 `;
 

@@ -82,12 +82,11 @@ const About = () => {
 };
 
 const Container = styled.div`
-	background-color: white;
+	background-color: #070c1f;
+	padding-top: 10vh;
 `;
 
-const Main = styled.main`
-	padding: 10vh 10vw;
-`;
+const Main = styled.main``;
 
 const Intro = styled.section`
 	display: grid;
@@ -95,6 +94,7 @@ const Intro = styled.section`
 	grid-template-columns: repeat(2, 1fr);
 	gap: 3rem;
 	height: 90vh;
+	margin: 0 10vw;
 `;
 
 const Description = styled.article`
@@ -113,7 +113,7 @@ const Title = styled.h1`
 const P = styled.p`
 	font-size: 1.3rem;
 	line-height: 2rem;
-	color: #070c1f;
+	color: white;
 `;
 
 const Img = styled.div`
@@ -129,7 +129,9 @@ const Definition = styled.section`
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: repeat(2, 1fr);
-	height: 70vh;
+	height: 90vh;
+	padding: 0 10vw;
+	background-color: #96cbb3;
 `;
 
 const DefinitionImg = styled.div`
@@ -152,9 +154,9 @@ const Symptoms = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 70%;
-	height: 80vh;
-	margin: 10vh 15%;
+	height: 90vh;
+	padding: 5vh 15vw;
+	background-color: white;
 `;
 
 const Contents = styled.article`
@@ -195,9 +197,9 @@ const Prevention = styled.section`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
-	height: 60vh;
-	margin: 20vh 10% 5vh 20vh;
+	height: 90vh;
+	padding: 15vh 10% 5vh 20vh;
+	background-color: #f0f0f0;
 `;
 
 const Methods = styled.article`
