@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
 	return (
 		<Container className="Home">
-			<Header />
 			<Main>
 				<Info>
 					<TitleContainer>
@@ -30,13 +28,15 @@ const Home = () => {
 	);
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+	padding-top: 10vh;
+`;
 
 const Main = styled.main`
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: repeat(2, 1fr);
-	padding: 10vh 10vw 0 10vw;
+	padding: 0 10vw;
 	height: 90vh;
 	width: 100%;
 `;

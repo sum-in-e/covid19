@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/bootstrap';
 import useAxios from '../api';
-import Header from '../components/Header';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
+
+let countriesAllData = [];
+let countriesData = [];
+// value로 뽑아낸 리스트를 전체리스트와 대조해서 일치하지 않는 아이를 제거하는 방식으로 만들고
+// 검색어가 없으면 다시 복구해야해..
+
+//			window.scrollTo(0, 0);
+/*
+const handleInput = e => {
+	const value = e.target.value.toLowerCase();
+	const dataList = countriesAllData.filter(data => data.Country_text !== undefined);
+	const matchingData = dataList.filter(data => data.Country_text.toLowerCase().includes(value));
+	console.log(matchingData);
+};
 
 const useCountriesCases = () => {
 	const { loading, data, error } = useAxios({
@@ -15,7 +28,37 @@ const useCountriesCases = () => {
 		},
 	});
 
+	if (data !== null) {
+		countriesAllData = data;
+	}
+
 	return { loading, data, error };
+};
+*/
+const handleInput = e => {
+	const value = e.target.value.toLowerCase();
+	const dataList = countriesAllData.filter(data => data.Country_text !== undefined);
+	const matchingData = dataList.filter(data => data.Country_text.toLowerCase().includes(value));
+	console.log(matchingData);
+};
+
+const useCountriesCases = () => {
+	const { loading, data, error } = useAxios({
+		url: '/v1',
+		headers: {
+			'x-rapidapi-host': 'covid-19-tracking.p.rapidapi.com',
+			'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+		},
+	});
+
+	if (data !== null) {
+		countriesAllData = data;
+		countriesData = data;
+	}
+
+	console.log(countriesData);
+
+	return { loading, error };
 };
 
 const useWorldCases = () => {
@@ -45,11 +88,10 @@ const useKoreaCases = () => {
 const Dashboard = () => {
 	const { loading: koreaLoading, data: koreaData, error: koreaError } = useKoreaCases();
 	const { loading: worldLoading, data: worldData, error: worldError } = useWorldCases();
-	const { loading: countriesLoading, data: countriesData, error: countriesError } = useCountriesCases();
+	const { loading: countriesLoading, error: countriesError } = useCountriesCases();
 
 	return (
 		<Container className="Dashboard">
-			<Header />
 			<Main>
 				<MainTitle>Coronavirus Dashboard</MainTitle>
 				<Board loading={koreaLoading} data={koreaData} error={koreaError}></Board>
@@ -59,7 +101,7 @@ const Dashboard = () => {
 						<Title>Countries</Title>
 						<SearchArea>
 							<SearchIcon />
-							<Input type="text" placeholder="Search" />
+							<Input type="text" placeholder="Search" onChange={handleInput} />
 						</SearchArea>
 					</WorldHeader>
 					<WorldArticle>
