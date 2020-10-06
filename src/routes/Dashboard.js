@@ -4,23 +4,63 @@ import { Search } from '@styled-icons/bootstrap';
 import useAxios from '../api';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
+import Axios from 'axios';
 
 const Dashboard = () => {
 	const [input, setInput] = useState('');
+	const [countries, setCountries] = useState({
+		loading: true,
+		data: null,
+		error: null,
+	});
+	const [allCountries, setAllCountries] = useState([]);
 
 	const onChange = e => {
 		const {
 			target: { value },
 		} = e;
-		setInput(value);
+		const inputValue = value.toLowerCase();
+		const matchingData = allCountries.filter(country => country.Country_text.toLowerCase().includes(inputValue));
+		setInput(inputValue);
+		setCountries({
+			loading: true,
+			data: matchingData,
+			error: null,
+		});
 	};
+
+	useEffect(() => {
+		Axios.request({
+			url: '/v1',
+			headers: {
+				'x-rapidapi-host': 'covid-19-tracking.p.rapidapi.com',
+				'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+			},
+		})
+			.then(response => {
+				const data = response.data.filter(data => data.Country_text !== undefined);
+				setCountries({
+					loading: false,
+					data: data,
+					error: null,
+				});
+				setAllCountries(data);
+			})
+			.catch(error => {
+				setCountries({
+					loading: false,
+					data: null,
+					error: error,
+				});
+			});
+	}, []);
 
 	return (
 		<Container>
 			<Main>
 				<MainTitle>Coronavirus Dashboard</MainTitle>
-				<Board loading={koreaLoading} data={koreaData} error={koreaError}></Board>
-				<Board loading={worldLoading} data={worldData} error={worldError}></Board>
+				<Board></Board>
+				<Board></Board>
 				<WholeWorld>
 					<WorldHeader>
 						<Title>Countries</Title>
@@ -40,9 +80,9 @@ const Dashboard = () => {
 							<Case>Active</Case>
 						</Category>
 						<Results>
-							{countriesData &&
-								countriesData.length > 0 &&
-								countriesData.map((result, index) => <CountryCases key={index} data={result} />)}
+							{countries.data &&
+								countries.data.length > 0 &&
+								countries.data.map((result, index) => <CountryCases key={index} data={result} />)}
 						</Results>
 					</WorldArticle>
 				</WholeWorld>
