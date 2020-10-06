@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/bootstrap';
-import useAxios from '../api';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
 import Axios from 'axios';
 
 const Dashboard = () => {
 	const [input, setInput] = useState('');
+	const [korea, setKorea] = useState({
+		loading: true,
+		data: null,
+		error: null,
+	});
+	const [worldwide, setWorldwide] = useState({
+		loading: true,
+		data: null,
+		error: null,
+	});
 	const [countries, setCountries] = useState({
 		loading: true,
 		data: null,
@@ -39,6 +48,18 @@ const Dashboard = () => {
 		})
 			.then(response => {
 				const data = response.data.filter(data => data.Country_text !== undefined);
+				const koreaData = data.filter(data => data.Country_text === 'S. Korea')[0];
+				const worldwideData = data.filter(data => data.Country_text === 'World')[0];
+				setKorea({
+					loading: false,
+					data: koreaData,
+					error: null,
+				});
+				setWorldwide({
+					loading: false,
+					data: worldwideData,
+					error: null,
+				});
 				setCountries({
 					loading: false,
 					data: data,
@@ -47,6 +68,16 @@ const Dashboard = () => {
 				setAllCountries(data);
 			})
 			.catch(error => {
+				setKorea({
+					loading: false,
+					data: null,
+					error: error,
+				});
+				setWorldwide({
+					loading: false,
+					data: null,
+					error: error,
+				});
 				setCountries({
 					loading: false,
 					data: null,
@@ -59,8 +90,8 @@ const Dashboard = () => {
 		<Container>
 			<Main>
 				<MainTitle>Coronavirus Dashboard</MainTitle>
-				<Board></Board>
-				<Board></Board>
+				<Board loading={korea.loading} data={korea.data} error={korea.error}></Board>
+				<Board loading={worldwide.loading} data={worldwide.data} error={worldwide.error}></Board>
 				<WholeWorld>
 					<WorldHeader>
 						<Title>Countries</Title>
