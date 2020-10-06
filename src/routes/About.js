@@ -131,7 +131,7 @@ const Definition = styled.section`
 	grid-template-columns: repeat(2, 1fr);
 	height: 90vh;
 	padding: 0 10vw;
-	background-color: #96cbb3;
+	background-color: white;
 `;
 
 const DefinitionImg = styled.div`
@@ -199,7 +199,7 @@ const Prevention = styled.section`
 	align-items: center;
 	height: 90vh;
 	padding: 15vh 10% 5vh 20vh;
-	background-color: #f0f0f0;
+	background-color: white;
 `;
 
 const Methods = styled.article`
