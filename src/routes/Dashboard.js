@@ -33,7 +33,7 @@ const Dashboard = () => {
 		const matchingData = allCountries.filter(country => country.Country_text.toLowerCase().includes(inputValue));
 		setInput(inputValue);
 		setCountries({
-			loading: true,
+			loading: false,
 			data: matchingData,
 			error: null,
 		});
