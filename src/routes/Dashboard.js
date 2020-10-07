@@ -84,6 +84,7 @@ const Dashboard = () => {
 					error: error,
 				});
 			});
+		window.scrollTo(0, 0);
 	}, []);
 
 	return (
