@@ -1,60 +1,87 @@
 import React from 'react';
 import styled from 'styled-components';
+import Loader from './Loader';
 
 const Board = ({ loading, data, error }) => {
 	return (
-		<Container>
-			{data && Object.keys(data).length > 0 && (
-				<>
-					<Header>
-						{data.Country_text === 'World' ? (
-							<Title>{data.Country_text} Total</Title>
-						) : (
-							<Title>{data.Country_text ? data.Country_text : '-'}</Title>
-						)}
-						<LastUpdate>Last Update : {data['Last Update'] ? data['Last Update'] : '-'}</LastUpdate>
-					</Header>
-					<Results>
-						<Result>
-							<Total>
-								<H3>Coronavirus Cases</H3>
-								<TotalCount>{data['Total Cases_text'] ? data['Total Cases_text'] : '-'}</TotalCount>
-							</Total>
-							<New>
-								<H4>New Cases</H4>
-								<NewCount>{data['New Cases_text'] ? data['New Cases_text'] : '-'}</NewCount>
-							</New>
-						</Result>
-						<Result>
-							<Total>
-								<H3>Deaths</H3>
-								<TotalCount>{data['Total Deaths_text'] ? data['Total Deaths_text'] : '-'}</TotalCount>
-							</Total>
-							<New>
-								<H4>New Deaths</H4>
-								<NewCount>{data['New Deaths_text'] ? data['New Deaths_text'] : '-'}</NewCount>
-							</New>
-						</Result>
-						<Result>
-							<Total>
-								<H3>Recovered</H3>
-								<TotalCount>
-									{data['Total Recovered_text'] ? data['Total Recovered_text'] : '-'}
-								</TotalCount>
-							</Total>
-						</Result>
-						<Result>
-							<Total>
-								<H3>Active Cases</H3>
-								<TotalCount>{data['Active Cases_text'] ? data['Active Cases_text'] : '-'}</TotalCount>
-							</Total>
-						</Result>
-					</Results>
-				</>
+		<>
+			{loading ? (
+				<LoaderContainer>
+					<Loader />
+				</LoaderContainer>
+			) : (
+				<Container>
+					{data && Object.keys(data).length > 0 && (
+						<>
+							<Header>
+								{data.Country_text === 'World' ? (
+									<Title>{data.Country_text} Total</Title>
+								) : (
+									<Title>{data.Country_text ? data.Country_text : '-'}</Title>
+								)}
+								<LastUpdate>Last Update : {data['Last Update'] ? data['Last Update'] : '-'}</LastUpdate>
+							</Header>
+							<Results>
+								<Result>
+									<Total>
+										<H3>Coronavirus Cases</H3>
+										<TotalCount>
+											{data['Total Cases_text'] ? data['Total Cases_text'] : '-'}
+										</TotalCount>
+									</Total>
+									<New>
+										<H4>New Cases</H4>
+										<NewCount>{data['New Cases_text'] ? data['New Cases_text'] : '-'}</NewCount>
+									</New>
+								</Result>
+								<Result>
+									<Total>
+										<H3>Deaths</H3>
+										<TotalCount>
+											{data['Total Deaths_text'] ? data['Total Deaths_text'] : '-'}
+										</TotalCount>
+									</Total>
+									<New>
+										<H4>New Deaths</H4>
+										<NewCount>{data['New Deaths_text'] ? data['New Deaths_text'] : '-'}</NewCount>
+									</New>
+								</Result>
+								<Result>
+									<Total>
+										<H3>Recovered</H3>
+										<TotalCount>
+											{data['Total Recovered_text'] ? data['Total Recovered_text'] : '-'}
+										</TotalCount>
+									</Total>
+								</Result>
+								<Result>
+									<Total>
+										<H3>Active Cases</H3>
+										<TotalCount>
+											{data['Active Cases_text'] ? data['Active Cases_text'] : '-'}
+										</TotalCount>
+									</Total>
+								</Result>
+							</Results>
+						</>
+					)}
+				</Container>
 			)}
-		</Container>
+		</>
 	);
 };
+
+const LoaderContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 35vh;
+	padding: 1.5rem;
+	margin-bottom: 2.5rem;
+	background-color: #1e2033;
+	border-radius: 25px;
+`;
 
 const Container = styled.section`
 	width: 100%;

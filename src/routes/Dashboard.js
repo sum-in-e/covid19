@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Axios from 'axios';
 import { Search } from '@styled-icons/bootstrap';
 import Board from '../components/Board';
 import CountryCases from '../components/CountryCases';
-import Axios from 'axios';
+import Loader from '../components/Loader';
 
 const Dashboard = () => {
 	const [input, setInput] = useState('');
@@ -91,8 +92,8 @@ const Dashboard = () => {
 		<Container>
 			<Main>
 				<MainTitle>Coronavirus Dashboard</MainTitle>
-				<Board loading={korea.loading} data={korea.data} error={korea.error}></Board>
-				<Board loading={worldwide.loading} data={worldwide.data} error={worldwide.error}></Board>
+				<Board loading={korea.loading} data={korea.data} error={korea.error} />
+				<Board loading={worldwide.loading} data={worldwide.data} error={worldwide.error} />
 				<WholeWorld>
 					<WorldHeader>
 						<Title>Countries</Title>
@@ -111,11 +112,17 @@ const Dashboard = () => {
 							<Case>Recovered</Case>
 							<Case>Active</Case>
 						</Category>
-						<Results>
-							{countries.data &&
-								countries.data.length > 0 &&
-								countries.data.map((result, index) => <CountryCases key={index} data={result} />)}
-						</Results>
+						{countries.loading ? (
+							<LoaderContainer>
+								<Loader />
+							</LoaderContainer>
+						) : (
+							<Results>
+								{countries.data &&
+									countries.data.length > 0 &&
+									countries.data.map((result, index) => <CountryCases key={index} data={result} />)}
+							</Results>
+						)}
 					</WorldArticle>
 				</WholeWorld>
 			</Main>
@@ -217,6 +224,13 @@ const Results = styled.div`
 	& > div:nth-child(2n) {
 		background-color: #1e2033;
 	}
+`;
+
+const LoaderContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 88%;
 `;
 
 export default Dashboard;
