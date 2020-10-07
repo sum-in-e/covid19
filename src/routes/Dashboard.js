@@ -112,16 +112,24 @@ const Dashboard = () => {
 							<Case>Recovered</Case>
 							<Case>Active</Case>
 						</Category>
-						{countries.loading ? (
-							<LoaderContainer>
-								<Loader />
-							</LoaderContainer>
+						{countries.error ? (
+							<LoaderContainer>에러 발생</LoaderContainer>
 						) : (
-							<Results>
-								{countries.data &&
-									countries.data.length > 0 &&
-									countries.data.map((result, index) => <CountryCases key={index} data={result} />)}
-							</Results>
+							<>
+								{countries.loading ? (
+									<LoaderContainer>
+										<Loader />
+									</LoaderContainer>
+								) : (
+									<Results>
+										{countries.data &&
+											countries.data.length > 0 &&
+											countries.data.map((result, index) => (
+												<CountryCases key={index} data={result} />
+											))}
+									</Results>
+								)}
+							</>
 						)}
 					</WorldArticle>
 				</WholeWorld>
