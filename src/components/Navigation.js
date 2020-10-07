@@ -6,8 +6,10 @@ const Header = ({ location: { pathname } }) => {
 	return (
 		<Container>
 			<Title>
-				<RedP>COVID</RedP>
-				<WhiteP>-19</WhiteP>
+				<TLink to={'/'}>
+					<RedP>COVID</RedP>
+					<WhiteP>-19</WhiteP>
+				</TLink>
 			</Title>
 			<Navigation>
 				<Ul>
@@ -44,9 +46,18 @@ const Container = styled.div`
 	background-color: #070c1f;
 `;
 
-const Title = styled.div`
+const Title = styled.div``;
+
+const TLink = styled(Link)`
 	display: flex;
 	font-size: 1.3rem;
+	&:focus,
+	&:hover,
+	&:visited,
+	&:link,
+	&:active {
+		text-decoration: none;
+	}
 `;
 
 const RedP = styled.p`
