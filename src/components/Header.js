@@ -73,6 +73,9 @@ const Navigation = styled.nav`
 	right: -15rem;
 	width: 25%;
 	height: 50%;
+	@media (max-width: 1250px) {
+		right: -12rem;
+	}
 `;
 
 const Ul = styled.ul`
