@@ -68,6 +68,9 @@ const Container = styled.div``;
 
 const Main = styled.main`
 	margin: 10vh 10vw;
+	@media (max-width: 1024px) {
+		margin: 10vh 6vw;
+	}
 `;
 
 const MainTitle = styled.h1`

@@ -102,6 +102,9 @@ const Container = styled.section`
 	margin-bottom: 2.5rem;
 	background-color: #1e2033;
 	border-radius: 25px;
+	@media (max-width: 1024px) {
+		height: 55vh;
+	}
 `;
 
 const Header = styled.header`
@@ -138,6 +141,11 @@ const Results = styled.article`
 
 	& > div:nth-child(4) {
 		color: #05dfd7;
+	}
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 1.5rem;
 	}
 `;
 

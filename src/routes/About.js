@@ -97,12 +97,18 @@ const Intro = styled.section`
 	gap: 3rem;
 	height: 90vh;
 	margin: 0 10vw;
+	@media (max-width: 1024px) {
+		display: block;
+		margin: 0 6vw;
+		padding-top: 2rem;
+	}
 `;
 
 const Description = styled.article`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 `;
 
 const Title = styled.h1`
@@ -110,12 +116,23 @@ const Title = styled.h1`
 	font-size: 3.3rem;
 	line-height: 4rem;
 	color: #f14338;
+	@media (max-width: 1024px) {
+		font-size: 2.5rem;
+		width: 65%;
+		text-align: center;
+	}
 `;
 
 const P = styled.p`
 	font-size: 1.3rem;
 	line-height: 2rem;
 	color: white;
+	@media (max-width: 1024px) {
+		text-align: center;
+		width: 70%;
+		margin-bottom: 5rem;
+		font-size: 1.1rem;
+	}
 `;
 
 const Img = styled.div`
@@ -125,6 +142,10 @@ const Img = styled.div`
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
+	@media (max-width: 1024px) {
+		width: auto;
+		height: 40vh;
+	}
 `;
 
 const Definition = styled.section`
@@ -134,6 +155,12 @@ const Definition = styled.section`
 	height: 90vh;
 	padding: 0 10vw;
 	background-color: white;
+	@media (max-width: 1024px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 10vh 6vw;
+	}
 `;
 
 const DefinitionImg = styled.div`
@@ -144,12 +171,20 @@ const DefinitionImg = styled.div`
 	background-position: center center;
 	background-size: contain;
 	background-repeat: no-repeat;
+	@media (max-width: 1024px) {
+		width: auto;
+		height: 30vh;
+		margin-bottom: 3rem;
+	}
 `;
 
 const Text = styled.p`
 	width: 80%;
 	line-height: 2rem;
 	color: #070c1f;
+	@media (max-width: 1024px) {
+		text-align: center;
+	}
 `;
 
 const Symptoms = styled.section`
@@ -200,8 +235,11 @@ const Prevention = styled.section`
 	flex-direction: column;
 	align-items: center;
 	height: 90vh;
-	padding: 15vh 10% 5vh 20vh;
+	padding: 15vh 20vh 5vh 20vh;
 	background-color: white;
+	@media (max-width: 1024px) {
+		padding: 10vh 6vh 5vh 6vh;
+	}
 `;
 
 const Methods = styled.article`
@@ -212,15 +250,23 @@ const Methods = styled.article`
 	width: 100%;
 	height: 100%;
 	margin-top: 1rem;
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 1rem;
+	}
 `;
 
 const Method = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 70% 30%;
-	height: 100%;
+	height: 80%;
 	width: 100%;
 	transition: all 0.5s;
+	@media (max-width: 1024px) {
+		grid-template-rows: 80% 20%;
+	}
 `;
 
 const MethodImg = styled.div`

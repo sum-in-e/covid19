@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Search } from '@styled-icons/bootstrap';
-import Axios from 'axios';
 import CountryCases from './CountryCases';
 import Loader from './Loader';
 import Api from '../api';
@@ -118,6 +117,9 @@ const SearchArea = styled.div`
 	padding: 5px;
 	background-color: #191b26;
 	border-radius: 30px;
+	@media (max-width: 1024px) {
+		width: 40%;
+	}
 `;
 
 const SearchIcon = styled(Search)`
@@ -140,17 +142,21 @@ const WorldArticle = styled.article`
 	height: 75%;
 	font-size: 1.2rem;
 	color: gray;
+	overflow: scroll;
 `;
 
 const Category = styled.div`
 	display: grid;
-	grid-template-columns: repeat(8, 1fr);
+	grid-template-columns: repeat(8, minmax(100px, 1fr));
 	grid-template-rows: 1fr;
 	width: 100%;
 	height: 12%;
-	padding: 0 3rem 0 1.5rem;
+	padding: 0 1.5rem;
 	background-color: #272f38;
 	font-size: 1.1rem;
+	@media (max-width: 1024px) {
+		width: 120%;
+	}
 `;
 
 const Name = styled.span`
@@ -166,9 +172,6 @@ const Case = styled.span`
 
 const Results = styled.div`
 	height: 88%;
-	overflow: scroll;
-	overflow-x: hidden;
-
 	& > div:nth-child(2n) {
 		background-color: #1e2033;
 	}

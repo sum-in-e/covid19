@@ -21,7 +21,7 @@ const CountryCases = ({ data }) => {
 
 const Container = styled.div`
 	display: grid;
-	grid-template-columns: repeat(8, 1fr);
+	grid-template-columns: repeat(8, minmax(100px, 1fr));
 	grid-template-rows: 1fr;
 	width: 100%;
 	height: 12%;
@@ -46,6 +46,9 @@ const Container = styled.div`
 	}
 	& > span:nth-child(7) {
 		color: #05dfd7;
+	}
+	@media (max-width: 1024px) {
+		width: 120%;
 	}
 `;
 

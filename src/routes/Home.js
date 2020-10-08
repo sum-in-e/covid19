@@ -39,12 +39,20 @@ const Main = styled.main`
 	padding: 0 10vw;
 	height: 90vh;
 	width: 100%;
+	@media (max-width: 1024px) {
+		display: block;
+		padding: 0 6vw;
+	}
 `;
 
 const Info = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+	@media (max-width: 1024px) {
+		height: 55%;
+	}
 `;
 
 const TitleContainer = styled.div`
@@ -56,6 +64,10 @@ const TextBox = styled.div`
 	font-size: 5rem;
 	@media (max-width: 1250px) {
 		font-size: 4.5rem;
+	}
+	@media (max-width: 1024px) {
+		font-size: 4.3rem;
+		justify-content: center;
 	}
 `;
 
@@ -78,6 +90,10 @@ const P = styled.p`
 	@media (max-width: 1250px) {
 		width: 85%;
 	}
+	@media (max-width: 1024px) {
+		width: 90%;
+		text-align: center;
+	}
 `;
 
 const SLink = styled(Link)`
@@ -93,6 +109,10 @@ const SLink = styled(Link)`
 	}
 	@media (max-width: 1250px) {
 		width: 25%;
+	}
+	@media (max-width: 1024px) {
+		height: 10%;
+		width: 20%;
 	}
 `;
 
@@ -120,6 +140,10 @@ const Img = styled.section`
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
+	@media (max-width: 1024px) {
+		width: auto;
+		height: 40%;
+	}
 `;
 
 export default Home;

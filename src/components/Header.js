@@ -44,6 +44,10 @@ const Container = styled.div`
 	font-size: 1.1rem;
 	color: white;
 	background-color: #070c1f;
+	@media (max-width: 1024px) {
+		font-size: 1.3rem;
+		padding: 0 6vw;
+	}
 `;
 
 const Title = styled.div``;
@@ -75,6 +79,10 @@ const Navigation = styled.nav`
 	height: 50%;
 	@media (max-width: 1250px) {
 		right: -12rem;
+	}
+	@media (max-width: 1024px) {
+		position: static;
+		width: 40%;
 	}
 `;
 
@@ -109,6 +117,11 @@ const HotLine = styled.div`
 	height: 50%;
 	width: 15%;
 	background-color: #f14338;
+	@media (max-width: 1024px) {
+		font-size: 1.1rem;
+		height: 45%;
+		width: 18%;
+	}
 `;
 
 const Span = styled.span``;
