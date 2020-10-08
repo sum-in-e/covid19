@@ -97,14 +97,10 @@ const LoaderContainer = styled.div`
 
 const Container = styled.section`
 	width: 100%;
-	height: 35vh;
 	padding: 1.5rem;
 	margin-bottom: 2.5rem;
 	background-color: #1e2033;
 	border-radius: 25px;
-	@media (max-width: 1024px) {
-		height: 55vh;
-	}
 `;
 
 const Header = styled.header`
@@ -123,7 +119,6 @@ const LastUpdate = styled.span`
 
 const Results = styled.article`
 	width: 100%;
-	height: 70%;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 1fr;
