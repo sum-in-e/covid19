@@ -49,9 +49,9 @@ const Info = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	@media (max-width: 1024px) {
 		height: 55%;
+		align-items: center;
 	}
 `;
 
