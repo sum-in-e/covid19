@@ -54,6 +54,9 @@ const TitleContainer = styled.div`
 const TextBox = styled.div`
 	display: flex;
 	font-size: 5rem;
+	@media (max-width: 1250px) {
+		font-size: 4.5rem;
+	}
 `;
 
 const TextRed = styled.p`
@@ -72,6 +75,9 @@ const P = styled.p`
 	margin-bottom: 3rem;
 	font-size: 1.1rem;
 	color: white;
+	@media (max-width: 1250px) {
+		width: 85%;
+	}
 `;
 
 const SLink = styled(Link)`
@@ -84,6 +90,9 @@ const SLink = styled(Link)`
 	&:active {
 		text-decoration: none;
 		color: white;
+	}
+	@media (max-width: 1250px) {
+		width: 25%;
 	}
 `;
 
