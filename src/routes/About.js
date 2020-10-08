@@ -121,6 +121,9 @@ const Title = styled.h1`
 		width: 65%;
 		text-align: center;
 	}
+	@media (max-width: 800px) {
+		width: 90%;
+	}
 `;
 
 const P = styled.p`
@@ -132,6 +135,9 @@ const P = styled.p`
 		width: 70%;
 		margin-bottom: 5rem;
 		font-size: 1.1rem;
+	}
+	@media (max-width: 800px) {
+		width: 90%;
 	}
 `;
 
@@ -145,6 +151,9 @@ const Img = styled.div`
 	@media (max-width: 1024px) {
 		width: auto;
 		height: 40vh;
+	}
+	@media (max-width: 800px) {
+		height: 30vh;
 	}
 `;
 
@@ -194,6 +203,9 @@ const Symptoms = styled.section`
 	height: 90vh;
 	padding: 5vh 15vw;
 	background-color: white;
+	@media (max-width: 800px) {
+		padding: 5vh 10vw;
+	}
 `;
 
 const Contents = styled.article`

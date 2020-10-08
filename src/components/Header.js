@@ -84,6 +84,9 @@ const Navigation = styled.nav`
 		position: static;
 		width: 40%;
 	}
+	@media (max-width: 800px) {
+		width: 45%;
+	}
 `;
 
 const Ul = styled.ul`
@@ -117,10 +120,15 @@ const HotLine = styled.div`
 	height: 50%;
 	width: 15%;
 	background-color: #f14338;
+	text-align: center;
 	@media (max-width: 1024px) {
 		font-size: 1.1rem;
 		height: 45%;
 		width: 18%;
+	}
+	@media (max-width: 800px) {
+		height: 50%;
+		font-size: 1.1rem;
 	}
 `;
 

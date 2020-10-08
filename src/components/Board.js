@@ -142,11 +142,20 @@ const Results = styled.article`
 		grid-template-rows: repeat(2, 1fr);
 		gap: 1.5rem;
 	}
+	@media (max-width: 800px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
 `;
 
 const Result = styled.div`
 	padding: 1rem;
 	border-left: dotted 1px #3e3f51;
+	@media (max-width: 800px) {
+		border-left: none;
+		border-top: dotted 1px #3e3f51;
+	}
 `;
 
 const Total = styled.div`

@@ -120,6 +120,9 @@ const SearchArea = styled.div`
 	@media (max-width: 1024px) {
 		width: 40%;
 	}
+	@media (max-width: 800px) {
+		width: 50%;
+	}
 `;
 
 const SearchIcon = styled(Search)`
@@ -156,6 +159,9 @@ const Category = styled.div`
 	font-size: 1.1rem;
 	@media (max-width: 1024px) {
 		width: 120%;
+	}
+	@media (max-width: 800px) {
+		width: 165%;
 	}
 `;
 
