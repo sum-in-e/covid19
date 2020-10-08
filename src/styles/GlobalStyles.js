@@ -4,6 +4,12 @@ import reset from 'styled-reset';
 const globalStyles = createGlobalStyle`
     ${reset};
 
+    html {
+	@media (max-width: 1250px) {
+        font-size : 15px
+	}
+
+    }
     a {
         text-decoration : none;
     }
