@@ -53,6 +53,9 @@ const Container = styled.div`
 	@media (max-width: 800px) {
 		width: 165%;
 	}
+	@media (max-width: 414px) {
+		width : 250%;
+	}
 `;
 
 const Name = styled.span`

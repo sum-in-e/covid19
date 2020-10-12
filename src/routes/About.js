@@ -155,6 +155,9 @@ const Img = styled.div`
 	@media (max-width: 800px) {
 		height: 30vh;
 	}
+	@media (max-width: 414px) {
+		height: 25vh;
+	}
 `;
 
 const Definition = styled.section`
@@ -184,6 +187,10 @@ const DefinitionImg = styled.div`
 		width: auto;
 		height: 30vh;
 		margin-bottom: 3rem;
+	}
+	@media (max-width: 414px) {
+		margin-left: 0;
+		height: 25vh;
 	}
 `;
 
@@ -215,6 +222,9 @@ const Contents = styled.article`
 	gap: 2rem;
 	height: 90%;
 	width: 100%;
+	@media (max-width: 414px) {
+		gap: 0.5rem;
+	}
 `;
 
 const Content = styled.div`
@@ -232,6 +242,10 @@ const ContentImg = styled.div`
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+	@media (max-width: 414px) {
+		width: 100%;
+		height: auto;
+	}
 `;
 
 const ContentTitle = styled.h2`
@@ -240,6 +254,7 @@ const ContentTitle = styled.h2`
 	align-items: center;
 	font-size: 1.5rem;
 	color: #070c1f;
+	text-align: center;
 `;
 
 const Prevention = styled.section`

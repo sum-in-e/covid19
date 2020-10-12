@@ -50,13 +50,13 @@ const CountriesResult = () => {
 
 	return (
 		<Container>
-			<WorldHeader>
+			<Header>
 				<Title>Countries</Title>
 				<SearchArea>
 					<SearchIcon />
 					<Input type="text" value={input} placeholder="Search" onChange={onChange} />
 				</SearchArea>
-			</WorldHeader>
+			</Header>
 			<WorldArticle>
 				<Category>
 					<Name>Name</Name>
@@ -97,12 +97,17 @@ const Container = styled.section`
 	border-radius: 25px;
 `;
 
-const WorldHeader = styled.header`
+const Header = styled.header`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 20%;
 	padding: 2rem 1.5rem;
+	@media (max-width: 414px) {
+		flex-direction: column;
+		align-items: flex-start;
+		height: 22%;
+	}
 `;
 
 const Title = styled.h1`
@@ -122,6 +127,9 @@ const SearchArea = styled.div`
 	}
 	@media (max-width: 800px) {
 		width: 50%;
+	}
+	@media (max-width: 414px) {
+		width: 100%;
 	}
 `;
 
@@ -162,6 +170,9 @@ const Category = styled.div`
 	}
 	@media (max-width: 800px) {
 		width: 165%;
+	}
+	@media (max-width: 414px) {
+		width : 250%;
 	}
 `;
 

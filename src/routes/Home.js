@@ -114,6 +114,9 @@ const SLink = styled(Link)`
 		height: 10%;
 		width: 20%;
 	}
+	@media (max-width: 414px) {
+		width: 30%;
+	}
 `;
 
 const Btn = styled.button`
