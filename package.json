@@ -19,7 +19,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
+		"predeploy" : "npm run build",
 		"deploy" : "aws s3 sync ./build s3://covid19-korea --profile=sumin"
 	},
 	"eslintConfig": {
