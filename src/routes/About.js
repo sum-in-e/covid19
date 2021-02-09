@@ -58,7 +58,7 @@ const About = () => {
 					</Contents>
 				</Symptoms>
 				<Prevention>
-					<Title>Preventive Method</Title>
+					<Title>Prevention</Title>
 					<Methods>
 						<Method>
 							<MethodImg image={require('../assets/washHands.png')} />
@@ -84,7 +84,7 @@ const About = () => {
 };
 
 const Container = styled.div`
-	background-color: #070c1f;
+	background-color: white;
 	padding-top: 10vh;
 `;
 
@@ -96,11 +96,11 @@ const Intro = styled.section`
 	grid-template-columns: repeat(2, 1fr);
 	gap: 3rem;
 	height: 90vh;
-	margin: 0 10vw;
+	padding: 0 10vw;
+	background-color: #070c1f;
 	@media (max-width: 1024px) {
 		display: block;
-		margin: 0 6vw;
-		padding-top: 2rem;
+		padding: 2rem 6vw 0 6vw;
 	}
 `;
 
@@ -122,7 +122,10 @@ const Title = styled.h1`
 		text-align: center;
 	}
 	@media (max-width: 800px) {
-		width: 90%;
+		width: 95%;
+	}
+	@media (max-width: 414px) {
+		line-height: 3rem;
 	}
 `;
 
@@ -166,7 +169,6 @@ const Definition = styled.section`
 	grid-template-columns: repeat(2, 1fr);
 	height: 90vh;
 	padding: 0 10vw;
-	background-color: white;
 	@media (max-width: 1024px) {
 		display: flex;
 		flex-direction: column;
@@ -209,7 +211,6 @@ const Symptoms = styled.section`
 	align-items: center;
 	height: 90vh;
 	padding: 5vh 15vw;
-	background-color: white;
 	@media (max-width: 800px) {
 		padding: 5vh 10vw;
 	}
@@ -263,7 +264,6 @@ const Prevention = styled.section`
 	align-items: center;
 	height: 90vh;
 	padding: 15vh 20vh 5vh 20vh;
-	background-color: white;
 	@media (max-width: 1024px) {
 		padding: 10vh 6vh 5vh 6vh;
 	}
