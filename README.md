@@ -6,6 +6,11 @@
 - CSS
 - JavaScript (React)
 
+<br>
+
 ### Preview
+<br>
 
 [Link](https://www.notion.so/Preview-COVID-19-Tracking-Web-f9d8cf1c1bcc4bd3b863d97d6116b105)
+
+![](src/assets/preview.png)
