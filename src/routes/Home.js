@@ -91,7 +91,7 @@ const P = styled.p`
 		width: 85%;
 	}
 	@media (max-width: 1024px) {
-		width: 90%;
+		width: 100%;
 		text-align: center;
 	}
 `;
