@@ -268,10 +268,10 @@ const Prevention = styled.section`
 	flex-direction: column;
 	align-items: center;
 	height: 90vh;
-	padding: 15vh 20vh 5vh 20vh;
+	padding: 20vh 20vh 0vh;
 	background-color: white;
 	@media (max-width: 1024px) {
-		padding: 10vh 6vh 5vh 6vh;
+		padding: 15vh 6vh 0vh;
 	}
 `;
 
