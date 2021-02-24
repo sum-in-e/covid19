@@ -4,7 +4,7 @@
 
 - HTML5
 - Styled-components
-- JavaScript (React)
+- React
 
 <br>
 
