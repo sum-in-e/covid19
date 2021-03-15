@@ -7,7 +7,7 @@
 - React
 
 <br>
-
-## [Go to preview](https://www.notion.so/Preview-COVID-19-Tracking-Web-f9d8cf1c1bcc4bd3b863d97d6116b105)
+<span>[Go to preview](https://www.notion.so/Preview-COVID-19-Tracking-Web-f9d8cf1c1bcc4bd3b863d97d6116b105)</span> / 
+<span>[Go to website](http://covid19-korea.s3-website.ap-northeast-2.amazonaws.com/)</span>
 
 ![](src/assets/preview.png)
